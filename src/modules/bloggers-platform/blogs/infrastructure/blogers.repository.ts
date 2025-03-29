@@ -21,4 +21,11 @@ export class BlogsRepository {
     }
     return blog;
   }
+
+  async deleteById(id: string): Promise<void> {
+    const res = await this.BlogModel.deleteOne({ _id: id });
+    if (res.deletedCount === 0) {
+      throw new NotFoundException('Blog not found');
+    }
+  }
 }
