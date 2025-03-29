@@ -43,7 +43,7 @@ export class User {
   @Prop({ type: Boolean, required: true, default: false })
   isEmailConfirmed: boolean;
 
-  // @Prop(NameSchema) this variant from docdoesn't make validation for inner object
+  // @Prop(NameSchema) this variant from doc, doesn't make validation for inner object
   @Prop({ type: NameSchema })
   name: Name;
 

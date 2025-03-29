@@ -1,10 +1,10 @@
 {
-  "name": "ed-back-lessons-bloggers-nest",
+  "name": "blogger-platform",
   "version": "0.0.1",
   "description": "",
   "author": "",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "up-mongo-db": "docker-compose up -d",
     "build": "nest build",

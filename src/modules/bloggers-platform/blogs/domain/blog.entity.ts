@@ -1,5 +1,6 @@
 import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument, Model } from 'mongoose';
+import { CreateBlogDto } from '../dto/create-blog.dto';
 
 @Schema({ timestamps: true })
 export class Blog {
@@ -45,6 +46,7 @@ export class Blog {
    * properties without @Prop for typescript so that they are in the class instance (or in instance methods)
    * @type {Date}
    */
+  @Prop({ type: Date, default: new Date() })
   createdAt: Date;
   updatedAt: Date;
 
@@ -54,8 +56,17 @@ export class Blog {
    * если ипсльзуете по всей системе шв айди как string, можете юзать, если id
    */
   get id() {
-    //@ts-ignore
+    // @ts-ignore
     return this._id.toString();
+  }
+
+  static createInstance(dto: CreateBlogDto): BlogDocument {
+    const blog = new this();
+    blog.name = dto.name;
+    blog.description = dto.description;
+    blog.websiteUrl = dto.websiteUrl;
+    blog.isMembership = true;
+    return blog as BlogDocument;
   }
 }
 

@@ -8,6 +8,9 @@ export function pipesSetup(app: INestApplication) {
       //class-transformer создает экземпляр dto
       //соответственно применятся значения по-умолчанию
       //и методы классов dto
+      //transform: true - включает трансформацию входящих данных
+      //в соответствии с типами данных в dto
+      //example: { age: '25' } => { age: 25 }
       transform: true,
     }),
   );
