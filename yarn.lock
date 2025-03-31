@@ -868,7 +868,7 @@
     webpack "5.97.1"
     webpack-node-externals "3.0.0"
 
-"@nestjs/common@^10.0.0 || ^11.0.0", "@nestjs/common@^11.0.0", "@nestjs/common@^11.0.1", "@nestjs/common@^11.0.6":
+"@nestjs/common@^10.0.0 || ^11.0.0", "@nestjs/common@^11.0.0", "@nestjs/common@^11.0.1", "@nestjs/common@^11.0.2", "@nestjs/common@^11.0.6":
   version "11.0.6"
   resolved "https://registry.npmjs.org/@nestjs/common/-/common-11.0.6.tgz"
   integrity sha512-j+M3WOU6loZPNirIHDiZ1LxXRXVNb62XicgLBqdgyrDBFCJrAZaq0lfERUEPlN0/j4GBFnTSPg+CNsoGTBW1zQ==
@@ -877,7 +877,7 @@
     tslib "2.8.1"
     uid "2.0.2"
 
-"@nestjs/core@^10.0.0 || ^11.0.0", "@nestjs/core@^11.0.0", "@nestjs/core@^11.0.1", "@nestjs/core@^11.0.6":
+"@nestjs/core@^10.0.0 || ^11.0.0", "@nestjs/core@^11.0.0", "@nestjs/core@^11.0.1", "@nestjs/core@^11.0.2", "@nestjs/core@^11.0.6":
   version "11.0.6"
   resolved "https://registry.npmjs.org/@nestjs/core/-/core-11.0.6.tgz"
   integrity sha512-Xf33bwc3waAJ/faJBW06+Dwq3m15p3wbFOc/CcK8ua5EZna4sMjIjXXAb6bQmEjR1KfTXV5z595UD2vwp6cyHg==
@@ -920,6 +920,13 @@
     comment-json "4.2.5"
     jsonc-parser "3.3.1"
     pluralize "8.0.0"
+
+"@nestjs/serve-static@^5.0.3":
+  version "5.0.3"
+  resolved "https://registry.npmjs.org/@nestjs/serve-static/-/serve-static-5.0.3.tgz"
+  integrity sha512-0jFjTlSVSLrI+mot8lfm+h2laXtKzCvgsVStv9T1ZBZTDwS26gM5czIhIESmWAod0PfrbCDFiu9C1MglObL8VA==
+  dependencies:
+    path-to-regexp "8.2.0"
 
 "@nestjs/swagger@^11.0.3":
   version "11.0.3"
@@ -2574,7 +2581,7 @@ expect@^29.0.0, expect@^29.7.0:
     jest-message-util "^29.7.0"
     jest-util "^29.7.0"
 
-express@5.0.1:
+express@^5.0.1, express@5.0.1:
   version "5.0.1"
   resolved "https://registry.npmjs.org/express/-/express-5.0.1.tgz"
   integrity sha512-ORF7g6qGnD+YtUG9yx4DFoqCShNMmUKiXuT5oWMHiOvt/4WFbHC6yCwQMTSBMno7AqntNCAzzcnnjowRkTL9eQ==
