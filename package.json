@@ -34,7 +34,8 @@
     "dotenv": "^16.4.7",
     "mongoose": "^8.9.5",
     "reflect-metadata": "^0.2.0",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "swagger-ui-dist": "^5.20.2"
   },
   "devDependencies": {
     "@nestjs/cli": "^11.0.2",
