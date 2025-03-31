@@ -4,7 +4,6 @@ import { globalPrefixSetup } from './global-prefix.setup';
 import { swaggerSetup } from './swagger.setup';
 
 export function appSetup(app: INestApplication) {
-  app.enableCors();
   pipesSetup(app);
   globalPrefixSetup(app);
   swaggerSetup(app);
