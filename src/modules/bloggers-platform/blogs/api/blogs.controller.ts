@@ -17,15 +17,16 @@ import { GetBlogsQueryParams } from './input-dto/get-blogs-query-params.dto';
 import { BlogViewDto } from './view-dto/blog-view.dto';
 import { CreateBlogDto } from '../dto/create-blog.dto';
 import { ApiResponse } from '@nestjs/swagger';
+import { ParseObjectIdPipe } from '../../../../common/pipes/parse-object-id.pipe';
+import { PostViewDto } from '../../posts/api/view-dto/post-view.dto';
+import { GetPostsQueryParams } from '../../posts/api/input-dto/get-posts-query-params.dto';
 
 @Controller('blogs')
 export class BlogsController {
   constructor(
     private blogsQueryRepository: BlogsQueryRepository,
     private blogsService: BlogsService,
-  ) {
-    console.log('BlogsController created');
-  }
+  ) {}
 
   @Get()
   async getAll(
@@ -34,13 +35,13 @@ export class BlogsController {
     return this.blogsQueryRepository.getAll(query);
   }
 
-  // @Get(':id/posts')
-  // async getPostsByBloggerId(
-  //   @Param('blogId') blogId: string,
-  // ): Promise<PaginatedViewDto<PostViewDto[]>> {
-  //   const blog = await this.blogsQueryRepository.getByIdOrNotFoundFail(blogId);
-  //   const posts = await this.postsQueryRepository.getAllByBlogId(blog.id);
-  // }
+  @Get(':id/posts')
+  async getPostsByBlogId(
+    @Query() query: GetPostsQueryParams,
+    @Param('id', ParseObjectIdPipe) id: string,
+  ): Promise<PaginatedViewDto<PostViewDto[]>> {
+    return this.blogsQueryRepository.getPostsByBlogId(id, query);
+  }
 
   @Post()
   async createBlog(@Body() body: CreateBlogDto): Promise<BlogViewDto> {
@@ -50,14 +51,16 @@ export class BlogsController {
   }
 
   @Get(':id')
-  async getBlogById(@Param('id') id: string): Promise<BlogViewDto> {
+  async getBlogById(
+    @Param('id', ParseObjectIdPipe) id: string,
+  ): Promise<BlogViewDto> {
     return this.blogsQueryRepository.getByIdOrNotFoundFail(id);
   }
 
   @HttpCode(HttpStatus.NO_CONTENT)
   @Put(':id')
   async updateBlog(
-    @Param('id') id: string,
+    @Param('id', ParseObjectIdPipe) id: string,
     @Body() body: CreateBlogDto,
   ): Promise<void> {
     await this.blogsService.updateBlog(id, body);
@@ -68,7 +71,7 @@ export class BlogsController {
     status: HttpStatus.NOT_FOUND,
   })
   @Delete(':id')
-  async deleteBlog(@Param('id') id: string): Promise<void> {
+  async deleteBlog(@Param('id', ParseObjectIdPipe) id: string): Promise<void> {
     await this.blogsService.deleteBlog(id);
   }
 }
