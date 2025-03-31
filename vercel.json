@@ -17,5 +17,14 @@
       "src": "/(.*)",
       "dest": "dist/main.js"
     }
-  ]
+  ],
+  "env": {
+    "NODE_ENV": "production",
+    "ENABLE_VERCEL_LOGGING": "true"
+  },
+  "build": {
+    "env": {
+      "ENABLE_VERCEL_LOGGING": "true"
+    }
+  }
 }
