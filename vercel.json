@@ -20,11 +20,13 @@
   ],
   "env": {
     "NODE_ENV": "production",
-    "ENABLE_VERCEL_LOGGING": "true"
+    "ENABLE_VERCEL_LOGGING": "true",
+    "NEST_DEBUG": "true"
   },
   "build": {
     "env": {
-      "ENABLE_VERCEL_LOGGING": "true"
+      "ENABLE_VERCEL_LOGGING": "true",
+      "NEST_DEBUG": "true"
     }
   }
 }
