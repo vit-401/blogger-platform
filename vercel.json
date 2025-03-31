@@ -3,35 +3,14 @@
   "name": "nest",
   "builds": [
     {
-      "src": "package.json",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["dist/**"],
-        "buildCommand": "npm run build",
-        "startCommand": "npm run start:prod",
-        "outputDirectory": "dist"
-      }
+      "src": "src/main.ts",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "dist/main.ts"
-    },
-    {
       "src": "/(.*)",
-      "dest": "dist/main.ts"
+      "dest": "src/main.ts"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production",
-    "ENABLE_VERCEL_LOGGING": "true",
-    "NEST_DEBUG": "true"
-  },
-  "build": {
-    "env": {
-      "ENABLE_VERCEL_LOGGING": "true",
-      "NEST_DEBUG": "true"
-    }
-  }
+  ]
 }
