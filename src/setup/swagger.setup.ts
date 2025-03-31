@@ -15,7 +15,7 @@ export function swaggerSetup(app: INestApplication) {
   SwaggerModule.setup(GLOBAL_PREFIX, app, document, {
     customSiteTitle: 'Blogger Swagger',
   });
-  const serverUrl = 'https://blogger-platform-zeta.vercel.app/';
+  const serverUrl = 'https://blogger-platform-zeta.vercel.app';
 
   get(
     `${serverUrl}/${GLOBAL_PREFIX}/swagger-ui-bundle.js`,
