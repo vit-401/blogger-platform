@@ -8,18 +8,11 @@ import { BloggersPlatformModule } from './modules/bloggers-platform/blogs/blogge
 import { CoreModule } from './core/core.module';
 import { PostsModule } from './modules/bloggers-platform/posts/posts-module';
 import * as dotenv from 'dotenv';
-import { ServeStaticModule } from '@nestjs/serve-static';
-import { join } from 'path';
-import { GLOBAL_PREFIX } from './setup/global-prefix.setup';
 
 dotenv.config();
 
 @Module({
   imports: [
-    ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'swagger-static'),
-      serveRoot: GLOBAL_PREFIX,
-    }),
     MongooseModule.forRoot(
       `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@nest-bloggers-cluster.khgeqyk.mongodb.net/?retryWrites=true&w=majority&appName=nest-bloggers-cluster`,
     ),
