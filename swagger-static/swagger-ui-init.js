@@ -671,11 +671,16 @@ window.onload = function() {
     },
     "info": {
       "title": "BLOGGER API",
-      "description": "",
+      "description": "The bloggers API description",
       "version": "1.0",
       "contact": {}
     },
-    "tags": [],
+    "tags": [
+      {
+        "name": "bloggers",
+        "description": ""
+      }
+    ],
     "servers": [],
     "components": {
       "securitySchemes": {

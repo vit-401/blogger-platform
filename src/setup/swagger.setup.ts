@@ -8,8 +8,10 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 export function swaggerSetup(app: INestApplication) {
   const config = new DocumentBuilder()
     .setTitle('BLOGGER API')
+    .setDescription('The bloggers API description')
     .addBearerAuth()
     .setVersion('1.0')
+    .addTag('bloggers')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
