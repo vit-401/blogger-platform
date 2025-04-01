@@ -17,7 +17,7 @@ dotenv.config();
   imports: [
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'swagger-static'),
-      serveRoot: process.env.NODE_ENV === 'development' ? '/' : '/api',
+      serveRoot: process.env.NODE_ENV === 'development' ? '/' : '/swagger',
     }),
     MongooseModule.forRoot(
       `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@nest-bloggers-cluster.khgeqyk.mongodb.net/?retryWrites=true&w=majority&appName=nest-bloggers-cluster`,
