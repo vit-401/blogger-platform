@@ -812,9 +812,7 @@ window.onload = function() {
       }
     }
   },
-  "customOptions": {
-    "persistAuthorization": true
-  }
+  "customOptions": {}
 };
   url = options.swaggerUrl || url
   let urls = options.swaggerUrls
