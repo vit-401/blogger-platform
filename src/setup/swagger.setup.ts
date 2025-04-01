@@ -18,14 +18,14 @@ export function swaggerSetup(app: INestApplication) {
   // get the swagger json file (if app is running in development mode)
   if (process.env.NODE_ENV === 'development') {
     // write swagger ui files
-    get(`${serverUrl}/swagger/swagger-ui-bundle.js`, function (response) {
+    get(`${serverUrl}/api/swagger-ui-bundle.js`, function (response) {
       response.pipe(createWriteStream('swagger-static/swagger-ui-bundle.js'));
       console.log(
         `Swagger UI bundle file written to: '/swagger-static/swagger-ui-bundle.js'`,
       );
     });
 
-    get(`${serverUrl}/swagger/swagger-ui-init.js`, function (response) {
+    get(`${serverUrl}/api/swagger-ui-init.js`, function (response) {
       response.pipe(createWriteStream('swagger-static/swagger-ui-init.js'));
       console.log(
         `Swagger UI init file written to: '/swagger-static/swagger-ui-init.js'`,
@@ -33,7 +33,7 @@ export function swaggerSetup(app: INestApplication) {
     });
 
     get(
-      `${serverUrl}/swagger/swagger-ui-standalone-preset.js`,
+      `${serverUrl}/api/swagger-ui-standalone-preset.js`,
       function (response) {
         response.pipe(
           createWriteStream('swagger-static/swagger-ui-standalone-preset.js'),
@@ -44,7 +44,7 @@ export function swaggerSetup(app: INestApplication) {
       },
     );
 
-    get(`${serverUrl}/swagger/swagger-ui.css`, function (response) {
+    get(`${serverUrl}/api/swagger-ui.css`, function (response) {
       response.pipe(createWriteStream('swagger-static/swagger-ui.css'));
       console.log(
         `Swagger UI css file written to: '/swagger-static/swagger-ui.css'`,
